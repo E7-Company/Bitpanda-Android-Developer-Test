@@ -24,7 +24,19 @@ GENERAL
 NICE TO HAVE 
 * You are free to implement also a nice UI 
 
+-----------------------------------------------------------------------------------------
 
+1. The data was modified to avoid the code repeated and fixed the structure.
+Currently any Wallet have a Currency and this currency is a Fiat or an Asset, and the assets could be Cryptocoin or Metal.
+A recyclerview and adapter has been created to show the list of Currency Wallets. The adapter filter the deleted wallets and show the name for Metals currency wallets. All the data is retrieved from the repository.
+
+2. The data is sorted by type and balance at the repository previous to show in the list. 
+
+3. A floating action button is used to change or filter the Currencies by type, it changes the items from the list and the title name.
+
+4. A new view was created to show the price with the correct precision and the € symbol. The price is sent like extra by intent to avoid to access to the repository again.
+
+5. I did Unit and UI tests for all tasks.
 
 
 
