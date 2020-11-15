@@ -1,12 +1,11 @@
 package com.bitpanda.developertest.model
 
-class Cryptocoin {
-
-    var precision: Int = 4
-
-    var name: String = ""
-    var symbol: String = ""
-    var id: String = ""
-    var price: Int = 0
-
+class Cryptocoin(
+    name: String,
+    symbol: String,
+    id: String,
+    logo: String,
+    price: Double
+): Asset(name, symbol, id, logo, price) {
+    override var precision: Int = 4
 }

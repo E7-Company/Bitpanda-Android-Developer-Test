@@ -1,11 +1,10 @@
 package com.bitpanda.developertest.model
 
-class Fiat {
-
-    var precision : Int = 2
-
-    var name : String = ""
-    var symbol : String = ""
-    var id : String = ""
-
+class Fiat (
+    name: String,
+    symbol: String,
+    id: String,
+    logo: String
+): Currency(name, symbol, id, logo)  {
+    override var precision: Int = 2
 }
