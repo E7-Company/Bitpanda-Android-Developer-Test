@@ -4,3 +4,7 @@ Implement the given function "getRecentContacts" in the ContactsComponent that r
     1. unique field "data" (NOT id)
     2. max length has to be three (if the list has size two and duplicate entries, then the returned list mustn't hold both: for ["A", "A"] the list should return ["A"])
     3. sorted by "last_used" (most recent first, last recent last -> fifo)
+
+-----------------------------------------------------------------------------------------
+
+- The classes for models were changed to data classes and the list result for contacts is retrieved with only 3 elements, distinct and ordered by unix timestamp.
