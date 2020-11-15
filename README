@@ -4,9 +4,23 @@
 
   a. Let us know about some Apps that are currently out on the market, where you think they did a good job in development and justify your choice.
   b. How would you handle this situation?
-     The Product Owner comes over to you and asks for an implementation with which he can see the performance of his crypto wallet over the past weeks. He is an iOS user and doesn't know the Android
-     platform too well. How would you approach this task?
+     The Product Owner comes over to you and asks for an implementation with which he can see the performance of his crypto wallet over the past weeks. He is an iOS user and doesn't know the Android platform too well. How would you approach this task?
   c. What kind of (technical) projects do you work on in your spare time?
 
+-----------------------------------------------------------------------------------------
 
+1. Comments are in READMEs files for any task.
 
+2. 
+
+  a. I will talk about my personal experience with apps I'm using or I used sometime.
+I like very much WhatsApp it is a great app with a lot of users, but I think the best development was the simple and easy UI and recently the encrypted messaging technology giving security to the users. It was very important because Telegram and Signal are big competitors. But they implemented this technology very fast and it was a great development to put security at the app.
+Other app I think had a good job in development is the Netflix's application. I like to watch series and movies in this application, and the job to move by the UI and to select and save your historic is great. The load time to show the movies is excellent and options to avoid the introductions are awesome. Sure it was a very hard job, because I have worked with videos and I know is very difficult to load correctly and fast.
+Also, other nice app is LinkedIn, recently has added a new design and a lot of new functions that includes visitor metrics, stories and a newsfeed for a decidedly more social feel. LinkedIn have a big database then sure they did a big effort to have a great environment and the retrieve and management of data is very important for this app. 
+The last app to mention is Google Maps. They are Google but the development to load maps and work with the GPS is perfect. The app is very intuitive and the functionality to show your position or get the best paths to your destiny have a good job in algorithms and access to public databases to get info about public transport and roads.
+
+  b. I think the first is to try to understand the task to implement, it's not necessary to do the UI but the task must be clear. We could do some diagrams or did any scheme to reach agreement. 
+More or less the idea is to get data of crypto wallets from the user (by local or network) to show it in a graph or view. We can create a new option to show the performance of his crypto wallet over the past weeks in a new view. The first is to get data from an API or local database to do a filter and order crypto wallets by the past weeks. 
+
+  c. I love programming and study about new technologies and also I have a lot of ideas to create applications. I have some apps at the play store for Android and I did any applications for iOS like freelance, you can see it at my CV. 
+I like to use the mobile technology to help people, like Bluetooth, camera or sensors. For example I did an app to use the mobile like a mouse with WiFi and Bluetooth connection and using the sensors (accelerometer, gyroscope) like a Wii. Also I did a few apps to help blind people using the camera to recognize colors, text and read QR codes. I'm looking to do projects to help the users and to use all the technology from mobiles, and I'm happy to have feedbacks to improve my applications and to know that my apps are interesting and helpful for the people.
