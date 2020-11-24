@@ -1,1 +1,0 @@
-# Bitpanda-Android-Developer-Test
