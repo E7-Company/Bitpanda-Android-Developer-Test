@@ -9,6 +9,7 @@ import com.bitpanda.developertest.model.Wallet
 import com.bitpanda.developertest.repository.Repository
 import com.bitpanda.developertest.ui.wallets.WalletViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.runBlockingTest
@@ -22,6 +23,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 
+@ExperimentalCoroutinesApi
 class ViewModelTest {
 
     @Mock

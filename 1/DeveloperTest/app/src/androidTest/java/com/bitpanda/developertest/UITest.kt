@@ -12,7 +12,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.bitpanda.developertest.repository.Repository
-import com.bitpanda.developertest.ui.wallets.WalletActivity
+import com.bitpanda.developertest.ui.MainActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -23,7 +23,7 @@ class UITest {
 
     @Rule
     @JvmField
-    val mActivityTestRule = ActivityTestRule(WalletActivity::class.java)
+    val mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     private lateinit var repository: Repository
 
@@ -39,7 +39,7 @@ class UITest {
 
     @Test
     fun checkViewsDisplay() {
-        onView(withId(R.id.container))
+        onView(withId(R.id.walletsFragment))
             .check(matches(isDisplayed()))
     }
 
@@ -75,7 +75,7 @@ class UITest {
         onView(withId(R.id.recyclerView))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(3, click()))
 
-        onView(withId(R.id.container))
+        onView(withId(R.id.priceFragment))
             .check(matches(hasDescendant(withText("0.0300€"))))
     }
 

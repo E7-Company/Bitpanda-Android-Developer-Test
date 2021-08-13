@@ -9,7 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bitpanda.developertest.R
-import com.bitpanda.developertest.model.*
+import com.bitpanda.developertest.model.Asset
+import com.bitpanda.developertest.model.Wallet
+import com.bitpanda.developertest.model.Metal
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 class WalletAdapter internal constructor(

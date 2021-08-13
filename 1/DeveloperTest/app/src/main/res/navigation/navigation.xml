@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/walletsFragment">
+
+    <fragment
+        android:id="@+id/walletsFragment"
+        android:name="com.bitpanda.developertest.ui.wallets.WalletFragment"
+        android:label="Wallets"
+        tools:layout="@layout/fragment_wallets" >
+        <action
+            android:id="@+id/action_walletsFragment_to_priceFragment"
+            app:destination="@id/priceFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/priceFragment"
+        android:name="com.bitpanda.developertest.ui.price.PriceFragment"
+        android:label="Price"
+        tools:layout="@layout/fragment_price" >
+        <action
+            android:id="@+id/action_priceFragment_to_walletsFragment"
+            app:destination="@id/walletsFragment" />
+    </fragment>
+
+</navigation>
