@@ -37,7 +37,7 @@ class WalletFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Setup UI
-        val adapter = WalletAdapter(view.context, ::onItemClickListener)
+        val adapter = WalletAdapter(::onItemClickListener)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(view.context)
         binding.recyclerView.addItemDecoration(DividerItemDecoration(context, VERTICAL))
