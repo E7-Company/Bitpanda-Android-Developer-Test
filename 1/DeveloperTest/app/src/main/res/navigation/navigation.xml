@@ -24,7 +24,11 @@
         tools:layout="@layout/fragment_price" >
         <action
             android:id="@+id/action_priceFragment_to_walletsFragment"
-            app:destination="@id/walletsFragment" />
+            app:popUpTo="@id/walletsFragment" />
+        <argument
+            android:name="priceArg"
+            app:argType="string"
+            android:defaultValue='"0.0"' />
     </fragment>
 
 </navigation>

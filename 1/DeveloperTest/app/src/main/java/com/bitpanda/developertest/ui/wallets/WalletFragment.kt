@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bitpanda.developertest.R
 import com.bitpanda.developertest.databinding.FragmentWalletsBinding
 import com.bitpanda.developertest.model.Asset
-import com.bitpanda.developertest.ui.price.PriceFragment.Companion.BUNDLE_KEY_PRICE
 import com.bitpanda.developertest.utils.autoCleared
 import com.bitpanda.developertest.utils.extensions.format
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,10 +45,9 @@ class WalletFragment : Fragment() {
 
     // Show detail view with price of the coin
     private fun onItemClickListener(asset: Asset) {
-        findNavController().navigate(
-            R.id.action_walletsFragment_to_priceFragment,
-            bundleOf(BUNDLE_KEY_PRICE to asset.price.format(asset.precision))
-        )
+        val action = WalletFragmentDirections.actionWalletsFragmentToPriceFragment()
+            .setPriceArg(asset.price.format(asset.precision))
+        findNavController().navigate(action)
     }
 
 }
