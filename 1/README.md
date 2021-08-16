@@ -30,7 +30,7 @@ NICE TO HAVE
 Currently any Wallet have a Currency and this currency is a Fiat or an Asset, and the assets could be Cryptocoin or Metal.
 A recyclerview and adapter has been created to show the list of Currency Wallets. The adapter filter the deleted wallets and show the name for Metals currency wallets. All the data is retrieved from the repository.
 
-<img src="https://github.com/E7-Company/Bitpanda-Android-Developer-Test/blob/main/Currency%20Wallets.jpg" width="340" height="285">
+<img src="https://github.com/E7-Company/Bitpanda-Android-Developer-Test/blob/master/1/Currency%20Wallets.jpg" width="340" height="285">
 
 2. The data is sorted by type and balance at the repository previous to show in the list. 
 
