@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">DeveloperTest</string>
     <string name="all_type">All</string>
+    <string name="change_type">Change Type</string>
 </resources>

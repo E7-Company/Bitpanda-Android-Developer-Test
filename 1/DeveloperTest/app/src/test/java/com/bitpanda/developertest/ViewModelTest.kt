@@ -72,7 +72,7 @@ class ViewModelTest {
         }
         repository.getWalletsFlow()
         Assert.assertThat(viewModel.wallets.value?.get(0)?.currency, instanceOf(Fiat::class.java))
-        Assert.assertTrue(viewModel.wallets.value?.get(0)?.balance!! > viewModel.wallets.value?.get(1)?.balance!!)
+        Assert.assertTrue(viewModel.wallets.value?.get(0)?.balance ?: 0.0 > viewModel.wallets.value?.get(1)?.balance ?: 0.0)
     }
 
     @Test

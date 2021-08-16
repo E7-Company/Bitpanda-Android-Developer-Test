@@ -18,15 +18,16 @@ class WalletViewModel @Inject constructor(
 
     private var index = 0
 
-    private val _title = MutableLiveData<String>()
+    private val _title = MutableLiveData(Constants.types[0].second)
     var title: LiveData<String> = _title
 
-    val wallets: MutableLiveData<List<Wallet>> = repository.getWalletsFlow()
+    private val _wallets = MutableLiveData<List<Wallet>>(repository.getWalletsFlow().value)
+    val wallets: LiveData<List<Wallet>> = _wallets
 
     // Function to change currency in list and title
     fun changeCurrency() = viewModelScope.launch {
         if(index >= Constants.types.size - 1) index = 0 else index++
-        wallets.value = repository.getWalletsByCurrency(Constants.types[index].first)
+        _wallets.value = repository.getWalletsByCurrency(Constants.types[index].first)
         _title.value = Constants.types[index].second
     }
 }

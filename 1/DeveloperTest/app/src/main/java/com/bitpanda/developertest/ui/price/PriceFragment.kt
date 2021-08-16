@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PriceFragment : Fragment() {
 
     private var binding: FragmentPriceBinding by autoCleared()
-    private val args: PriceFragmentArgs by navArgs<PriceFragmentArgs>()
+    private val args: PriceFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +27,9 @@ class PriceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.priceTextView.text = "${args.priceArg}${Constants.euro}"
+        binding.priceFragment.setContent {
+            PriceItem("${args.priceArg}${Constants.euro}")
+        }
     }
 
 }

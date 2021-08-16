@@ -4,12 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Divider
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bitpanda.developertest.R
 import com.bitpanda.developertest.databinding.FragmentWalletsBinding
 import com.bitpanda.developertest.model.Asset
 import com.bitpanda.developertest.utils.autoCleared
@@ -33,13 +48,16 @@ class WalletFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // Setup UI
+        binding.titleView.setContent {
+            ShowTitle()
+        }
         val adapter = WalletAdapter(::onItemClickListener)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(view.context)
         binding.recyclerView.addItemDecoration(DividerItemDecoration(context, VERTICAL))
         viewModel.wallets.observe(viewLifecycleOwner) { adapter.setData(it) }
-        viewModel.title.observe(viewLifecycleOwner) { binding.titleTextView.text = it }
         binding.fab.setOnClickListener { viewModel.changeCurrency() }
     }
 
@@ -48,6 +66,22 @@ class WalletFragment : Fragment() {
         val action = WalletFragmentDirections.actionWalletsFragmentToPriceFragment()
             .setPriceArg(asset.price.format(asset.precision))
         findNavController().navigate(action)
+    }
+
+    @Composable
+    private fun ShowTitle() {
+        val title: String by viewModel.title.observeAsState("")
+        Column {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.h5,
+                textAlign = TextAlign.Left,
+                modifier = Modifier
+                    .padding(dimensionResource(R.dimen.margin_default))
+                    .fillMaxWidth()
+            )
+            Divider(color = Color.Black, thickness = 1.dp)
+        }
     }
 
 }

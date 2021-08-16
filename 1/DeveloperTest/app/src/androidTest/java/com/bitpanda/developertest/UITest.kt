@@ -1,9 +1,9 @@
 package com.bitpanda.developertest
 
-import android.app.Activity
-import android.content.Intent
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithText
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.InstrumentationRegistry
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -12,11 +12,10 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.rule.ActivityTestRule
-import com.bitpanda.developertest.repository.Repository
 import com.bitpanda.developertest.ui.MainActivity
-import org.junit.Before
+import com.bitpanda.developertest.ui.price.PriceItem
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,19 +25,11 @@ class UITest {
 
     @Rule
     @JvmField
-    val mActivityTestRule = ActivityTestRule(MainActivity::class.java)
+    val mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
-    private lateinit var repository: Repository
-
-    @Before
-    fun init() {
-        mActivityTestRule.activity
-            .supportFragmentManager.beginTransaction()
-
-        repository = Repository()
-
-        mActivityTestRule.restartActivity()
-    }
+    @Rule
+    @JvmField
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
 
     @Test
     fun checkViewsDisplay() {
@@ -78,13 +69,12 @@ class UITest {
         onView(withId(R.id.recyclerView))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(3, click()))
 
-        onView(withId(R.id.priceFragment))
-            .check(matches(hasDescendant(withText("0.0300€"))))
-    }
+        composeTestRule.setContent {
+            PriceItem(price = "0.0300€")
+        }
 
-    private inline fun <reified T : Activity> ActivityTestRule<T>.restartActivity() {
-        finishActivity()
-        launchActivity(Intent(InstrumentationRegistry.getTargetContext(), T::class.java))
+        composeTestRule.onNodeWithText("0.0300€").assertIsDisplayed()
+
     }
 
 }
