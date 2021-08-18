@@ -8,8 +8,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Divider
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -53,12 +57,15 @@ class WalletFragment : Fragment() {
         binding.titleView.setContent {
             ShowTitle()
         }
+        binding.fab.setContent {
+            ChangeButton()
+        }
+
         val adapter = WalletAdapter(::onItemClickListener)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(view.context)
         binding.recyclerView.addItemDecoration(DividerItemDecoration(context, VERTICAL))
         viewModel.wallets.observe(viewLifecycleOwner) { adapter.setData(it) }
-        binding.fab.setOnClickListener { viewModel.changeCurrency() }
     }
 
     // Show detail view with price of the coin
@@ -66,6 +73,21 @@ class WalletFragment : Fragment() {
         val action = WalletFragmentDirections.actionWalletsFragmentToPriceFragment()
             .setPriceArg(asset.price.format(asset.precision))
         findNavController().navigate(action)
+    }
+
+    @Composable
+    private fun ChangeButton() {
+        FloatingActionButton(
+            onClick = { viewModel.changeCurrency() },
+            modifier = Modifier
+                .padding(dimensionResource(R.dimen.margin_fragment))
+        ) {
+            Icon(
+                Icons.Filled.Refresh,
+                contentDescription = getString(R.string.change_type),
+                tint = Color.White
+            )
+        }
     }
 
     @Composable
